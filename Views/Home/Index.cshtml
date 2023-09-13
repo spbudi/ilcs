@@ -1,0 +1,37 @@
+﻿@model ILCSTest.Models.BiayaImpor
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>this project to input your kode_barang to get the value from api EndPoint.</p>
+</div>
+<form method="post">
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.kode_barang, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.kode_barang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.kode_barang, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nilai_komoditas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nilai_komoditas, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nilai_komoditas, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-primary btn-md" />
+        </div>
+    </div>
+}
+</div>
+</form>
